@@ -1,5 +1,4 @@
 # La línea de comandos de Bash
-=====================
 
 ![*Tux, el pingüino de Linux*](images/tux.png)
 
@@ -8,13 +7,7 @@ Este tutorial te familiariza con **bash**, la línea de comandos de Linux. Apren
 * navegar por directorios
 * manipular archivos
 * ejecutar programas
-
-Si no tienes experiencia previa con sistemas tipo Unix o conoces algunos comandos pero quieres aprender más, este tutorial es para ti.
-
-### Requisitos previos
-
-*Este tutorial fue preparado para Ubuntu Linux, pero también funciona en MacOS, Cygwin y Git Bash, siempre que tengas instalado Python 3 en tu sistema.*
-
+  
 ----
 
 ## Objetivo
@@ -27,9 +20,10 @@ Todos los caracteres están ocultos en los ejercicios siguientes.
 
 ## Preparativos
 
-* clona el repositorio o descarga el código como un archivo ZIP  
+* descarga el código como un archivo ZIP
+* entra a [JSLinux](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192) y sube el código
+* descomprime el archivo con `unzip`
 * localiza la carpeta `exercises/`  
-* abre una terminal `bash`  
 
 ![](preparations.png)
 
@@ -93,12 +87,6 @@ ls -l
 En la tabla que produce este comando, encontrarás el tamaño del archivo en bytes, el propietario del archivo, los permisos para leer y modificarlo, y la fecha/hora de la última modificación.  
 
 Para obtener el cuarto carácter, busca el tamaño del archivo en la [Tabla de caracteres ASCII imprimibles](https://es.wikipedia.org/wiki/ASCII#Caracteres_imprimibles).
-
-![](ASCII-Table-wide.svg)
-
-*Tabla ASCII, Dominio Público*
-
-<div class="admonition hint">
 
 Cuando escribas nombres de directorios o archivos, presiona `[TAB]` después de las primeras letras. Unix intentará autocompletar lo que escribes.
 
@@ -233,7 +221,7 @@ Por supuesto, puedes mirar el texto primero con `less` o `nano`. El **carácter 
 Unix tiene un pequeño programa para ordenar archivos de texto alfabéticamente. Se llama así:
 
 ```bash
-less <nombre_archivo> | sort
+less <nombre_archivo> | sort -f
 ```
 
 El símbolo `|` se llama *pipe* y se usa a menudo para conectar programas Unix entre sí. El **carácter número 12** de la solución es el primer carácter de la última palabra en el archivo `elephant.txt` ordenado alfabéticamente.
@@ -373,7 +361,7 @@ df
 Para obtener el **carácter número 18**, revisa la versión del programa `df`. Descubre cómo hacerlo con:
 
 ```bash
-df --help
+df --version
 ```
 
 La solución es el último carácter del primer nombre de los autores.
@@ -414,17 +402,13 @@ Si quieres que se definan automáticamente en cada ventana de consola, escribe e
 
 ### 6.4. Verificar si tienes internet
 
-La manera más sencilla de comprobar si tienes conexión a internet desde la línea de comandos de Unix es enviar una solicitud a un servidor conocido (por ejemplo, www.spiced-academy.com) con el comando:
+La manera más sencilla de comprobar si tienes conexión a internet desde la línea de comandos de Unix es enviar una solicitud a un servidor conocido (por ejemplo, www.google.com) con el comando:
 
 ```bash
 ping <dirección_web>
 ```
 
-El comando informa cuánto tarda un mensaje en ir y volver del servidor. Para interrumpirlo, presiona Ctrl+C. También puedes usar el programa:
-
-```bash
-./check_ping
-```
+El comando informa cuánto tarda un mensaje en ir y volver del servidor. Para interrumpirlo, presiona Ctrl+C. 
 
 El **carácter número 20** es la opción de `ping` que establece el número máximo de solicitudes enviadas. Revisa la documentación con:
 
@@ -455,23 +439,3 @@ kill -s 9 <pid>
 </div>
 
 El número *pid* está en la primera columna de la salida de `top`. Solo puedes cerrar tus propios programas, no los que pertenecen a *root*, el administrador del sistema.
-
-----
-
-### Licencia
-
-**© 2024 Dr. Kristian Rother**  
-
-Este tutorial se publica bajo la licencia Creative Commons Attribution Share-alike 4.0.  
-
-Puedes encontrar el código fuente completo en [https://github.com/krother/bash_tutorial](https://github.com/krother/bash_tutorial).
-
-### Agradecimientos
-
-Gracias a muchos estudiantes por usar el tutorial en la práctica y encontrar errores. Gracias a `@zulcas` por contribuir con correcciones.  
-
-Agradezco a Janusz M. Bujnicki, Allegra Via, Pedro Fernandes y Joachim Jacob por su ayuda en las pruebas y revisión del material. Un agradecimiento especial al Servicio Alemán de Intercambio Académico (DAAD) por su apoyo financiero.
-
-### Contacto
-
-`kristian.rother@posteo.de`
